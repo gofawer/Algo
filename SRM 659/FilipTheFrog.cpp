@@ -34,12 +34,6 @@ class FilipTheFrog {
         }
         cout << "Pos0 : " << positions[index] << endl;
 
-        // going back
-        for (int i = positions.size()-1 ; i >= 0 ; --i ) {
-            cout << positions[i] << " " ;
-        }
-        cout << endl;
-
         auto it_binary = positions.begin();
         if ( binary_search(positions.begin(), positions.end(), pos0) ) {
             cout << "found on position : " << distance(positions.begin(), it_binary) << endl;
@@ -51,8 +45,22 @@ class FilipTheFrog {
         auto it_lower = lower_bound(positions.begin(), positions.end(), pos0);
         cout << "found lower : " << *it_lower << " position : " << distance(positions.begin(), it_lower) << endl;
 
+        int counter = 0;
+        // going back
+        for (int i = positions.size()-1 ; i >= 0 ; --i ) {
+            if ( (i-1 >= 0) && abs(positions[i] - positions[i-1]) <= L ) {
+                counter++;
+            }
+        }
+        // going forward
+        for (int i = positions[index] ; i < positions.size() ; ++i) {
+            if ( (i+1 < positions.size()) && abs(positions[i] - positions[i+1]) <= L ) {
+                counter++;
+            }
+        }
+
         print(positions);
-        return 0;
+        return counter+1;
     }
 
 
