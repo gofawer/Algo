@@ -39,7 +39,6 @@ class FilipTheFrog {
             cout << positions[i] << " " ;
         }
         cout << endl;
-	
         print(positions);
         return 0;
     }
