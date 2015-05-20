@@ -33,18 +33,13 @@ class FilipTheFrog {
             cout << "Not found " << endl;
         }
         cout << "Pos0 : " << positions[index] << endl;
-<<<<<<< HEAD
 
         // going back
         for (int i = positions.size()-1 ; i >= 0 ; --i ) {
             cout << positions[i] << " " ;
         }
         cout << endl;
-
-=======
 	
-	
->>>>>>> bb8c73bcd5b43de2fcc6a8826ae1f998423328d1
         print(positions);
         return 0;
     }
