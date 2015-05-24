@@ -42,6 +42,7 @@ class FilipTheFrog {
             cout << "not found " << endl;
         }
 
+        // Returns an iterator pointing to the first element in the range [first, last) that is not less than (i.e. greater or equal to) value.
         auto it_lower = lower_bound(positions.begin(), positions.end(), pos0);
         cout << "found lower : " << *it_lower << " position : " << distance(positions.begin(), it_lower) << endl;
 
@@ -53,7 +54,7 @@ class FilipTheFrog {
             }
         }
         // going forward
-        for (int i = positions[index] ; i < positions.size() ; ++i) {
+        for (unsigned i = positions[index] ; i < positions.size() ; ++i) {
             if ( (i+1 < positions.size()) && abs(positions[i] - positions[i+1]) <= L ) {
                 counter++;
             }
