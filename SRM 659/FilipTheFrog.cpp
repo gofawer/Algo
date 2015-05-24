@@ -18,35 +18,15 @@ class FilipTheFrog {
 
         int pos0 = positions[0];
         int index = 0;
+        int counter = 0;
+
         sort(positions.begin(), positions.end());
 
-        auto it = find(positions.begin(), positions.end(), pos0);
-        // binary_search for sorted is better
-        // get index by std::distance(vec.begin(), it)
-        // std::advance(vi, 2) -- intresting
-        if (it != positions.end()) {
-            cout << "\nFound : " << *it << endl;
-            index = distance(positions.begin(), it);
-            cout << "index: " << index << endl;
-        }
-        else {
-            cout << "Not found " << endl;
-        }
-        cout << "Pos0 : " << positions[index] << endl;
-
-        auto it_binary = positions.begin();
-        if ( binary_search(positions.begin(), positions.end(), pos0) ) {
-            cout << "found on position : " << distance(positions.begin(), it_binary) << endl;
-        }
-        else {
-            cout << "not found " << endl;
-        }
-
-        // Returns an iterator pointing to the first element in the range [first, last) that is not less than (i.e. greater or equal to) value.
+        // Returns an iterator pointing to the first element in the range [first, last)
+        // that is not less than (i.e. greater or equal to) value.
         auto it_lower = lower_bound(positions.begin(), positions.end(), pos0);
-        cout << "found lower : " << *it_lower << " position : " << distance(positions.begin(), it_lower) << endl;
+        index = distance(positions.begin(), it_lower);
 
-        int counter = 0;
         // going back
         for (int i = positions.size()-1 ; i >= 0 ; --i ) {
             if ( (i-1 >= 0) && abs(positions[i] - positions[i-1]) <= L ) {
@@ -60,7 +40,6 @@ class FilipTheFrog {
             }
         }
 
-        print(positions);
         return counter+1;
     }
 
