@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/TT.dir/main.cpp.o  -o TT -rdynamic 
